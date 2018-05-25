@@ -192,7 +192,7 @@ CREATE TABLE `users` (
   `password` varchar(45) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
-  `admin` tinyint(4) DEFAULT NULL,
+  `admin` int(11) DEFAULT '0',
   `create_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `access_login_time` datetime DEFAULT NULL,
   PRIMARY KEY (`index`),
@@ -206,7 +206,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'fdsaf',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin@google.com','1234','admin',28,1,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
