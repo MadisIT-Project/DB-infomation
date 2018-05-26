@@ -219,7 +219,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'superadmin','superadmin','superadmin',29,1,NULL,NULL);
+INSERT INTO `users` VALUES (1,'superadmin','superadmin','superadmin',29,2,NULL,NULL);
 INSERT INTO `users` VALUES (2,'admin','admin','admin',29,1,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
