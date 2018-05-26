@@ -39,11 +39,6 @@ CREATE TABLE `boards` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `boards`
---
-
-
---
 -- Table structure for table `comments`
 --
 
@@ -64,15 +59,6 @@ CREATE TABLE `comments` (
   CONSTRAINT `h` FOREIGN KEY (`u_id`) REFERENCES `users` (`index`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `comments`
---
-
-LOCK TABLES `comments` WRITE;
-/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `cusums`
@@ -97,15 +83,6 @@ CREATE TABLE `cusums` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cusums`
---
-
-LOCK TABLES `cusums` WRITE;
-/*!40000 ALTER TABLE `cusums` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cusums` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `images`
 --
 
@@ -118,10 +95,6 @@ CREATE TABLE `images` (
   PRIMARY KEY (`index`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `images`
---
 
 --
 -- Table structure for table `menus`
@@ -141,15 +114,6 @@ CREATE TABLE `menus` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `menus`
---
-
-LOCK TABLES `menus` WRITE;
-/*!40000 ALTER TABLE `menus` DISABLE KEYS */;
-/*!40000 ALTER TABLE `menus` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `post_image`
 --
 
@@ -165,15 +129,6 @@ CREATE TABLE `post_image` (
   CONSTRAINT `f` FOREIGN KEY (`image_id`) REFERENCES `images` (`index`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `post_image`
---
-
-LOCK TABLES `post_image` WRITE;
-/*!40000 ALTER TABLE `post_image` DISABLE KEYS */;
-/*!40000 ALTER TABLE `post_image` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `posts`
@@ -199,10 +154,6 @@ CREATE TABLE `posts` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `posts`
---
-
---
 -- Table structure for table `revers`
 --
 
@@ -225,15 +176,6 @@ CREATE TABLE `revers` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `revers`
---
-
-LOCK TABLES `revers` WRITE;
-/*!40000 ALTER TABLE `revers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `revers` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `user_image`
 --
 
@@ -249,10 +191,6 @@ CREATE TABLE `user_image` (
   CONSTRAINT `d` FOREIGN KEY (`image_id`) REFERENCES `images` (`index`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_image`
---
 
 --
 -- Table structure for table `users`
