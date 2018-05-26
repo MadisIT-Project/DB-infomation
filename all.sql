@@ -16,6 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Current Database: `midas`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `midas` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `midas`;
+
+--
 -- Table structure for table `boards`
 --
 
@@ -34,11 +42,6 @@ CREATE TABLE `boards` (
 -- Dumping data for table `boards`
 --
 
-LOCK TABLES `boards` WRITE;
-/*!40000 ALTER TABLE `boards` DISABLE KEYS */;
-INSERT INTO `boards` VALUES (1,'test',NULL);
-/*!40000 ALTER TABLE `boards` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `comments`
@@ -72,6 +75,37 @@ LOCK TABLES `comments` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cusums`
+--
+
+DROP TABLE IF EXISTS `cusums`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cusums` (
+  `index` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `menu_id` int(11) DEFAULT NULL,
+  `num` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `state` int(11) DEFAULT NULL,
+  PRIMARY KEY (`index`),
+  KEY `cc_idx` (`user_id`),
+  KEY `dd_idx` (`menu_id`),
+  CONSTRAINT `cc` FOREIGN KEY (`user_id`) REFERENCES `users` (`index`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `dd` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`index`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cusums`
+--
+
+LOCK TABLES `cusums` WRITE;
+/*!40000 ALTER TABLE `cusums` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cusums` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `images`
 --
 
@@ -82,16 +116,37 @@ CREATE TABLE `images` (
   `index` int(11) NOT NULL AUTO_INCREMENT,
   `path` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`index`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `images`
 --
 
-LOCK TABLES `images` WRITE;
-/*!40000 ALTER TABLE `images` DISABLE KEYS */;
-/*!40000 ALTER TABLE `images` ENABLE KEYS */;
+--
+-- Table structure for table `menus`
+--
+
+DROP TABLE IF EXISTS `menus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `menus` (
+  `index` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `detail` varchar(200) DEFAULT NULL,
+  `path` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`index`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `menus`
+--
+
+LOCK TABLES `menus` WRITE;
+/*!40000 ALTER TABLE `menus` DISABLE KEYS */;
+/*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -147,10 +202,35 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-LOCK TABLES `posts` WRITE;
-/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,'ewaf','fdsa',1,1,NULL,NULL);
-/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+--
+-- Table structure for table `revers`
+--
+
+DROP TABLE IF EXISTS `revers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `revers` (
+  `index` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `menu_id` int(11) DEFAULT NULL,
+  `num` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `state` int(11) DEFAULT NULL,
+  PRIMARY KEY (`index`),
+  KEY `aa_idx` (`user_id`),
+  KEY `bb_idx` (`menu_id`),
+  CONSTRAINT `aa` FOREIGN KEY (`user_id`) REFERENCES `users` (`index`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `bb` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`index`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `revers`
+--
+
+LOCK TABLES `revers` WRITE;
+/*!40000 ALTER TABLE `revers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `revers` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -173,11 +253,6 @@ CREATE TABLE `user_image` (
 --
 -- Dumping data for table `user_image`
 --
-
-LOCK TABLES `user_image` WRITE;
-/*!40000 ALTER TABLE `user_image` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_image` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
@@ -206,7 +281,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin@google.com','1234','admin',28,1,NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin@google.com','1234','admin',29,1,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -219,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-22 18:39:18
+-- Dump completed on 2018-05-26 11:42:23
